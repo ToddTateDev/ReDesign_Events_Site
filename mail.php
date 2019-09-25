@@ -1,19 +1,3 @@
-<!-- <?php 
-require 'vendor/autoload.php'; // If you're using Composer (recommended)
-$name = $_POST['name'];
-$email = $_POST['email'];
-$message = $_POST['message'];
-$formcontent="From: $name \n Message: $message";
-$recipient = "toddtatevw@gmail.com";
-$subject = "Contact Form";
-$mailheader = "From: $email \r\n";
-// mail($recipient, $subject, $formcontent, $mailheader) or die("Error!");
-// echo "Thank You!";
-
-
-?> -->
-
-
 
 <?php
 // Comment out the above line if not using Composer
@@ -31,7 +15,7 @@ $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
 $email->addContent(
     "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
 );
-$sendgrid = new \SendGrid(getenv('0VjPeUWcxP0CayoRqpkMvZny1gEM_hvLgF1AFfZUi68'));
+$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
 try {
     $response = $sendgrid->send($email);
     print $response->statusCode() . "\n";
